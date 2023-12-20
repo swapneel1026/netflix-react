@@ -19,7 +19,7 @@ const Home = () => {
           navigator("/login");
         }}
       >
-        SignOut
+        LogOut
       </button>
     </div>
   );
