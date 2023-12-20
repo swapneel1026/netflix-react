@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/home",
+    path: "/login",
     element: (
       <HeroSection/>
     ),

@@ -4,22 +4,25 @@ import Tv from "./assets/Images/tv-iamgenetflix.png";
 import Stranger from "./assets/Images/stranger-things-img.jpg";
 import SacredGames from "./assets/Images/AAAABVr8nYuAg0xDpXDv0VI9HUoH7r2aGp4TKRCsKNQrMwxzTtr-NlwOHeS8bCI2oeZddmu3nMYr3j9MjYhHyjBASb1FaOGYZNYvPBCL.png";
 import AppleTv from "./assets/Images/device-pile-in.png";
+import { Link } from "react-router-dom";
 function App() {
   return (
     <div className="">
       <section className="h-screen p-4  border-b-4 relative   border-[#232323]">
         <div className="bg-[url('/src/assets/Images/bg-large-netflix.jpg')] absolute inset-0 filter bg-bottom brightness-[0.4] "></div>
         <div className="relative z-30 flex justify-between mx-28">
-          <NetflixIcon />
+          <NetflixIcon width={220}/>
 
           <div className="relative flex items-center gap-4 ">
             <select className="px-[1.625rem] py-[0.375rem] border   border-white rounded-md bg-[#171717] text-white text-[16px] ">
               <option> English</option>
               <option> Hindi</option>
             </select>
+            <Link to={"/login"}>
             <button className="px-4 py-1 font-medium text-white rounded-md bg-netflix-red">
               Sign In
             </button>
+            </Link>
           </div>
         </div>
         <div className="relative text-white md:max-w-[907px] lg:max-w-full text-center  mt-[188px]  flex flex-col items-center">
