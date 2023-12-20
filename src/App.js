@@ -6,7 +6,7 @@ import SacredGames from "./assets/Images/AAAABVr8nYuAg0xDpXDv0VI9HUoH7r2aGp4TKRC
 import AppleTv from "./assets/Images/device-pile-in.png";
 import { Link } from "react-router-dom";
 function App() {
-  return (
+  return (<>
     <div className="">
       <section className="h-screen p-4  border-b-4 relative   border-[#232323]">
         <div className="bg-[url('/src/assets/Images/bg-large-netflix.jpg')] absolute inset-0 filter bg-bottom brightness-[0.4] "></div>
@@ -97,6 +97,7 @@ function App() {
         </div>
       </section>
     </div>
+    </>
   );
 }
 

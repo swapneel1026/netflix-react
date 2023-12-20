@@ -8,6 +8,8 @@ import store from "./Store/store";
 import { createBrowserRouter,RouterProvider } from "react-router-dom";
 import LoginPage from "./components/Login/LoginPage";
 import Home from "./components/Dashboard/Home";
+import { Toaster } from 'sonner';
+
 
 const router = createBrowserRouter([
   {
@@ -21,7 +23,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: (
+      <>
+      <Toaster position="top-right"/>
       <LoginPage/>
+      </>
     ),
   },
   {

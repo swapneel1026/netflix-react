@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import { IoMdEye } from "react-icons/io";
 import { IoMdEyeOff } from "react-icons/io";
+import {  toast } from 'sonner';
+
 const LoginPage = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [parsedToken, setParsedToken] = useState("");
@@ -29,7 +31,7 @@ const LoginPage = () => {
         navigator("/home");
       }, 3000);
     } else {
-      alert("Email or Password Incorrect!");
+      toast("Email or Password Incorrect!");
       setLoggedIn(false);
     }
   };
@@ -68,6 +70,7 @@ const LoginPage = () => {
             type="email"
             name="email"
             id=""
+            required
             className="w-full px-2 rounded-md outline-none"
           />
         </div>
@@ -80,6 +83,7 @@ const LoginPage = () => {
               type={typepasswordVisible ? "text" : "password"}
               name="password"
               id=""
+              required
               className="w-full px-2 rounded-md outline-none"
               onChange={(e) => {
                 setPasswordText(e.target.value);
