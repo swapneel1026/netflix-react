@@ -6,7 +6,8 @@ import "./App.css";
 import { Provider } from "react-redux";
 import store from "./Store/store";
 import { createBrowserRouter,RouterProvider } from "react-router-dom";
-import HeroSection from "./components/Herosection/Herosection";
+import LoginPage from "./components/Login/LoginPage";
+import Home from "./components/Dashboard/Home";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,13 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: (
-      <HeroSection/>
+      <LoginPage/>
+    ),
+  },
+  {
+    path: "/home",
+    element: (
+      <Home/>
     ),
   },
 ]);
