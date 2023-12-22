@@ -15,13 +15,13 @@ const LoginPage = () => {
   const loggedin = useSelector((store) => store.loggedin.loggedin);
   const navigator = useNavigate();
   const dispatch = useDispatch();
-  console.log(loggedin, "login");
+  console.log(parsedToken, "login");
 
   useEffect(() => {
-    if (localStorage.getItem("cAuthToken") !== null) {
+    if (parsedToken) {
       navigator("/home");
     }
-  }, [navigator]);
+  }, [navigator,parsedToken]);
 
   const HandleLogin = (e) => {
     e.preventDefault();
