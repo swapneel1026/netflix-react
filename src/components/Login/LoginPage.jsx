@@ -76,7 +76,6 @@ const LoginPage = () => {
             <input
               type="email"
               name="email"
-              id=""
               required
               className="w-full px-2 rounded-md outline-none"
             />
@@ -89,7 +88,7 @@ const LoginPage = () => {
               <input
                 type={typepasswordVisible ? "text" : "password"}
                 name="password"
-                id=""
+                autoComplete="true"
                 required
                 className="w-full px-2 rounded-md outline-none"
                 onChange={(e) => {
@@ -122,7 +121,6 @@ const LoginPage = () => {
                 type="checkbox"
                 defaultChecked
                 name="check"
-                id=""
                 className=""
               />
               <span className="ml-1">Remember me</span>
