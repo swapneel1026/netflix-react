@@ -14,7 +14,7 @@ function App() {
         <section className="h-screen p-4  border-b-4 relative   border-[#232323]">
           <div className="bg-[url('/src/assets/Images/bg-large-netflix.jpg')] absolute inset-0 filter bg-bottom brightness-[0.4] "></div>
           <div className="relative z-30 flex justify-between lg:mx-28">
-            <NetflixIcon width={120} />
+            <NetflixIcon width={120} className={"md:w-[15rem] w-[7.5rem]"}/>
 
             <div className="relative flex items-center gap-4 ">
               <select className="md:px-[1.625rem] md:py-[0.375rem] border   border-white rounded-md bg-[#171717] text-white md:text-[16px] text-[12px] ">
