@@ -53,17 +53,17 @@ const LoginPage = () => {
 
   return (
     <>
-      <section className=" p-4  border-b-4 relative   border-[#232323]">
+      <section className=" p-4  border-b-4 relative border-[#232323]">
         <div className="bg-[url('/src/assets/Images/bg-large-netflix.jpg')] absolute inset-0 filter bg-bottom brightness-[0.4] "></div>
         <div className="relative z-30 flex justify-between mx-2">
-          <NetflixIcon width={240} />
+          <NetflixIcon width={240} onClick={()=>navigator("/")}/>
         </div>
 
         <form
           onSubmit={(e) => {
             HandleLogin(e);
           }}
-          className="rounded-md relative flex flex-col items-center justify-center max-w-[450px] mx-auto bg-black/[70%]  px-[68px] pb-[159px] pt-[40px]"
+          className="rounded-md relative flex flex-col items-center justify-center max-w-[450px] mx-auto bg-black/[70%]  sm:px-[68px] px-10 pb-[9.9375rem] pt-[40px]"
         >
           {" "}
           <h1 className="w-full text-[32px] font-medium text-white mb-[28px]">
@@ -75,22 +75,24 @@ const LoginPage = () => {
             </label>
             <input
               type="email"
+              placeholder="Enter email"
               name="email"
               required
-              className="w-full px-2 rounded-md outline-none"
+              className="w-full px-2 rounded-md outline-none placeholder:text-sm"
             />
           </div>
           <div className="flex flex-col items-start w-full px-4 py-1 mt-4 bg-white rounded-lg">
-            <label className="text-[11px] text-black  " htmlFor="password">
+            <label className="text-[11px] text-black" htmlFor="password">
               Password
             </label>
             <div className="inline-flex items-center space-x-2">
               <input
                 type={typepasswordVisible ? "text" : "password"}
                 name="password"
+                placeholder="Enter password"
                 autoComplete="true"
                 required
-                className="w-full px-2 rounded-md outline-none"
+                className="w-full px-2 rounded-md outline-none placeholder:text-sm "
                 onChange={(e) => {
                   setPasswordText(e.target.value);
                 }}
