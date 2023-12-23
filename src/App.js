@@ -4,6 +4,8 @@ import Tv from "./assets/Images/tv-iamgenetflix.png";
 import Stranger from "./assets/Images/stranger-things-img.jpg";
 import SacredGames from "./assets/Images/AAAABVr8nYuAg0xDpXDv0VI9HUoH7r2aGp4TKRCsKNQrMwxzTtr-NlwOHeS8bCI2oeZddmu3nMYr3j9MjYhHyjBASb1FaOGYZNYvPBCL.png";
 import AppleTv from "./assets/Images/device-pile-in.png";
+import appleTvGif from './assets/Images/tvgif.gif'
+import netflixGif from './assets/Images/netflixstartscreen.gif'
 import { Link } from "react-router-dom";
 import DownloadBanner from "./components/Navbar/DownloadBanner";
 import {useNavigate} from 'react-router-dom'
@@ -74,8 +76,9 @@ function App() {
               Blu-ray players and more.
             </p>
           </div>
-          <div className="w-full ">
-            <img src={Tv} alt="some" height={434} width={579} />
+          <div className="relative w-full ">
+            <img src={netflixGif} alt="" className="absolute inset-0 w-full" />
+            <img src={Tv} alt="some" height={434} width={579} className="relative" />
           </div>
         </section>
         <section className="flex lg:flex-row flex-col-reverse  lg:items-center lg:gap-2  gap-y-2   md:px-16   lg:justify-center h-screen bg-black lg:px-[175px] px-4 border-b-4 border-t-4 border-[#232323]">
@@ -100,8 +103,9 @@ function App() {
               laptop, and TV.
             </p>
           </div>
-          <div className="w-full ">
-            <img src={AppleTv} alt="some" height={434} width={579} />
+          <div className="relative flex justify-center w-full">
+            <img src={appleTvGif} alt="" className="absolute top-10 md:top-12 w-[140px] md:w-[300px] lg:w-[220px] xl:w-[320px]"/>
+            <img src={AppleTv} alt="some" height={434} width={579} className="relative"/>
           </div>
         </section>
         <section className="flex lg:flex-row flex-col-reverse items-center  gap-y-2 lg:gap-2  md:px-16  justify-center h-screen bg-black lg:px-[175px] px-4 border-b-4 border-t-4 border-[#232323]">
