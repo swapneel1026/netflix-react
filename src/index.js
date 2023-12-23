@@ -9,7 +9,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LoginPage from "./components/Login/LoginPage";
 import Home from "./components/Dashboard/Home";
 import { Toaster } from "sonner";
-import DownloadBanner from "./components/Navbar/DownloadBanner";
 
 const router = createBrowserRouter([
   {
@@ -42,7 +41,9 @@ const router = createBrowserRouter([
   {
     path: "/demo",
     element: (
-        <DownloadBanner/>
+      <>
+        
+        </>
     ),
   },
 ]);
