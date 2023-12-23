@@ -14,6 +14,9 @@ const Home = () => {
       navigator("/login");
     }
   }, [loggedin, navigator]);
+  
+
+  
 
   return (
     <div>
