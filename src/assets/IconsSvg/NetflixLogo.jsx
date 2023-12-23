@@ -1,9 +1,9 @@
 import React from "react";
 import Logo from '../Images/Netflix_Logo_PMS.png'
 
-function NetflixIcon({width,onClick}) {
+function NetflixIcon({onClick,className}) {
   return (
-    <img onClick={onClick}  src={Logo} alt="logo" width={width}  />
+    <img onClick={onClick}  src={Logo} alt="logo" className={`${className}`}  />
   );
 }
 

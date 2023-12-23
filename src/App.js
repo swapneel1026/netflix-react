@@ -5,6 +5,7 @@ import Stranger from "./assets/Images/stranger-things-img.jpg";
 import SacredGames from "./assets/Images/AAAABVr8nYuAg0xDpXDv0VI9HUoH7r2aGp4TKRCsKNQrMwxzTtr-NlwOHeS8bCI2oeZddmu3nMYr3j9MjYhHyjBASb1FaOGYZNYvPBCL.png";
 import AppleTv from "./assets/Images/device-pile-in.png";
 import { Link } from "react-router-dom";
+import DownloadBanner from "./components/Navbar/DownloadBanner";
 function App() {
   const [focus, setfocus] = useState(false);
   return (
@@ -13,7 +14,7 @@ function App() {
         <section className="h-screen p-4  border-b-4 relative   border-[#232323]">
           <div className="bg-[url('/src/assets/Images/bg-large-netflix.jpg')] absolute inset-0 filter bg-bottom brightness-[0.4] "></div>
           <div className="relative z-30 flex justify-between lg:mx-28">
-            <NetflixIcon width={120} />
+            <NetflixIcon width={120} className={"md:w-[15rem] w-[7.5rem]"}/>
 
             <div className="relative flex items-center gap-4 ">
               <select className="md:px-[1.625rem] md:py-[0.375rem] border   border-white rounded-md bg-[#171717] text-white md:text-[16px] text-[12px] ">
@@ -71,8 +72,9 @@ function App() {
           </div>
         </section>
         <section className="flex lg:flex-row flex-col-reverse  lg:items-center lg:gap-2  gap-y-2   md:px-16   lg:justify-center h-screen bg-black lg:px-[175px] px-4 border-b-4 border-t-4 border-[#232323]">
-          <div className="w-full ">
-            <img src={Stranger} alt="some" height={434} width={579} />
+          <div className="relative flex justify-center w-full">
+            <DownloadBanner className="absolute bottom-10 "/>
+            <img src={Stranger} alt="some" height={434} width={579} className=""/>
           </div>
           <div className="w-full text-center text-white lg:text-left">
             <h1 className="text-[32px] lg:text-[48px] font-bold lg:font-extrabold">
