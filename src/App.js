@@ -5,6 +5,7 @@ import Stranger from "./assets/Images/stranger-things-img.jpg";
 import SacredGames from "./assets/Images/AAAABVr8nYuAg0xDpXDv0VI9HUoH7r2aGp4TKRCsKNQrMwxzTtr-NlwOHeS8bCI2oeZddmu3nMYr3j9MjYhHyjBASb1FaOGYZNYvPBCL.png";
 import AppleTv from "./assets/Images/device-pile-in.png";
 import { Link } from "react-router-dom";
+import DownloadBanner from "./components/Navbar/DownloadBanner";
 function App() {
   const [focus, setfocus] = useState(false);
   return (
@@ -71,8 +72,9 @@ function App() {
           </div>
         </section>
         <section className="flex lg:flex-row flex-col-reverse  lg:items-center lg:gap-2  gap-y-2   md:px-16   lg:justify-center h-screen bg-black lg:px-[175px] px-4 border-b-4 border-t-4 border-[#232323]">
-          <div className="w-full ">
-            <img src={Stranger} alt="some" height={434} width={579} />
+          <div className="relative flex justify-center w-full">
+            <DownloadBanner className="absolute bottom-10 "/>
+            <img src={Stranger} alt="some" height={434} width={579} className=""/>
           </div>
           <div className="w-full text-center text-white lg:text-left">
             <h1 className="text-[32px] lg:text-[48px] font-bold lg:font-extrabold">
