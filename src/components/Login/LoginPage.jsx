@@ -15,13 +15,12 @@ const LoginPage = () => {
   const loggedin = useSelector((store) => store.loggedin.loggedin);
   const navigator = useNavigate();
   const dispatch = useDispatch();
-  console.log(loggedin, "login");
 
   useEffect(() => {
-    if (localStorage.getItem("cAuthToken") !== null) {
+    if (parsedToken) {
       navigator("/home");
     }
-  }, [navigator]);
+  }, [navigator, parsedToken]);
 
   const HandleLogin = (e) => {
     e.preventDefault();
@@ -36,6 +35,7 @@ const LoginPage = () => {
         localStorage.setItem("cAuthToken", jwt);
       }
       dispatch(setLoggedin(true));
+
       setTimeout(() => {
         navigator("/home");
       }, 3000);
@@ -76,7 +76,6 @@ const LoginPage = () => {
             <input
               type="email"
               name="email"
-              id=""
               required
               className="w-full px-2 rounded-md outline-none"
             />
@@ -89,7 +88,7 @@ const LoginPage = () => {
               <input
                 type={typepasswordVisible ? "text" : "password"}
                 name="password"
-                id=""
+                autoComplete="true"
                 required
                 className="w-full px-2 rounded-md outline-none"
                 onChange={(e) => {
@@ -118,13 +117,7 @@ const LoginPage = () => {
           />
           <div className="text-[#b3b3b3] flex justify-between w-full mt-2 text-[13px] leading-4">
             <article className="flex items-end">
-              <input
-                type="checkbox"
-                defaultChecked
-                name="check"
-                id=""
-                className=""
-              />
+              <input type="checkbox" defaultChecked name="check" className="" />
               <span className="ml-1">Remember me</span>
             </article>
             <p>Need help?</p>
