@@ -7,7 +7,6 @@ const Home = () => {
   const loggedin = useSelector((store) => store.loggedin.loggedin);
   const navigator = useNavigate();
   const dispatch = useDispatch();
-  console.log(loggedin, "home");
 
   useEffect(() => {
     if (loggedin === false && localStorage.getItem("cAuthToken") === null) {

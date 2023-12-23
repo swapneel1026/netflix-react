@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import NetflixIcon from "./assets/IconsSvg/NetflixLogo";
 import Tv from "./assets/Images/tv-iamgenetflix.png";
 import Stranger from "./assets/Images/stranger-things-img.jpg";
@@ -6,9 +6,10 @@ import SacredGames from "./assets/Images/AAAABVr8nYuAg0xDpXDv0VI9HUoH7r2aGp4TKRC
 import AppleTv from "./assets/Images/device-pile-in.png";
 import { Link } from "react-router-dom";
 function App() {
+  const [focus, setfocus] = useState(false);
   return (
     <>
-      <div className="">
+      <div className="" onClick={(e) => setfocus(false)}>
         <section className="h-screen p-4  border-b-4 relative   border-[#232323]">
           <div className="bg-[url('/src/assets/Images/bg-large-netflix.jpg')] absolute inset-0 filter bg-bottom brightness-[0.4] "></div>
           <div className="relative z-30 flex justify-between mx-28">
@@ -36,9 +37,20 @@ function App() {
               membership.
             </h4>
             <form className="flex items-center gap-2 mt-10 max-h-[]">
-              <div className="flex flex-col border border-[#2bb871] rounded-md bg-transparent ">
+              <div
+                className={`flex flex-col border ${
+                  focus ? "border-purple-700" : "border-[#2bb871]"
+                }  rounded-md bg-transparent px-2 py-1`}
+              >
                 <label className="text-left">Email address</label>
-                <input type="email" className=" w-[354px] bg-transparent " />
+                <input
+                  type="email"
+                  className={`w-[354px] bg-transparent outline-none `}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setfocus(true);
+                  }}
+                />
               </div>
               <button className="text-[1.5rem] font-medium bg-netflix-red px-[1.5rem] py-[12px] leading-[24px] rounded-md">
                 Get Started {">"}
