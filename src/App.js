@@ -6,8 +6,13 @@ import SacredGames from "./assets/Images/AAAABVr8nYuAg0xDpXDv0VI9HUoH7r2aGp4TKRC
 import AppleTv from "./assets/Images/device-pile-in.png";
 import { Link } from "react-router-dom";
 import DownloadBanner from "./components/Navbar/DownloadBanner";
+import {useNavigate} from 'react-router-dom'
+import {useDispatch} from'react-redux'
+import { setEmail } from "./Store/Slices/EmailDefaultSlice";
 function App() {
   const [focus, setfocus] = useState(false);
+  const navigator=useNavigate()
+  const dispatch=useDispatch()
   return (
     <>
       <div className="" onClick={(e) => setfocus(false)}>
@@ -47,13 +52,15 @@ function App() {
                 <input
                   type="email"
                   className={`lg:w-[354px] w-[250px] bg-transparent outline-none `}
+                  onChange={(e)=>dispatch(setEmail(e.target.value))}
                   onClick={(e) => {
                     e.stopPropagation();
                     setfocus(true);
                   }}
                 />
               </div>
-              <button className="lg:text-[1.5rem] lg:mt-0 mt-4 text-[20px] font-medium bg-netflix-red px-[1.5rem] lg:py-[12px] py-2 lg:leading-[24px] rounded-md">
+              <button onClick={(e)=>{e.preventDefault()
+              navigator("/login")}} className="lg:text-[1.5rem] lg:mt-0 mt-4 text-[20px] font-medium bg-netflix-red px-[1.5rem] lg:py-[12px] py-2 lg:leading-[24px] rounded-md">
                 Get Started {">"}
               </button>
             </form>

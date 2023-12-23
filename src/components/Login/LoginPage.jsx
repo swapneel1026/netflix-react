@@ -13,6 +13,7 @@ const LoginPage = () => {
   const [typepasswordVisible, setTypePasswordVisible] = useState(false);
   const [passwordText, setPasswordText] = useState("");
   const loggedin = useSelector((store) => store.loggedin.loggedin);
+  const email=useSelector(store=>store.emaildefault.email)
   const navigator = useNavigate();
   const dispatch = useDispatch();
 
@@ -75,6 +76,7 @@ const LoginPage = () => {
             </label>
             <input
               type="email"
+              defaultValue={email}
               placeholder="Enter email"
               name="email"
               required
