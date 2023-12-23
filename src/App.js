@@ -33,7 +33,7 @@ function App() {
               </Link>
             </div>
           </div>
-          <div className="relative text-white md:max-w-[907px] lg:max-w-full text-center  mt-16 lg:mt-[188px]  flex flex-col items-center">
+          <div className="relative text-white md:max-w-[907px] lg:max-w-full text-center  mt-16 xl:mt-[158px]  flex flex-col items-center">
             <h1 className="md:text-[40px] text-[32px] lg:text-[52px] font-[900]">
               Unlimited movies, TV shows and more
             </h1>
