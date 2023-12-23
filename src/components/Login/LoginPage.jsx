@@ -56,7 +56,7 @@ const LoginPage = () => {
       <section className=" p-4  border-b-4 relative border-[#232323]">
         <div className="bg-[url('/src/assets/Images/bg-large-netflix.jpg')] absolute inset-0 filter bg-bottom brightness-[0.4] "></div>
         <div className="relative z-30 flex justify-between mx-2">
-          <NetflixIcon width={240} onClick={()=>navigator("/")}/>
+          <NetflixIcon className={"w-[240px]"} onClick={()=>navigator("/")}/>
         </div>
 
         <form
