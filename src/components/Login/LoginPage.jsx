@@ -13,7 +13,7 @@ const LoginPage = () => {
   const [typepasswordVisible, setTypePasswordVisible] = useState(false);
   const [passwordText, setPasswordText] = useState("");
   const loggedin = useSelector((store) => store.loggedin.loggedin);
-  const email=useSelector(store=>store.emaildefault.email)
+  const email = useSelector((store) => store.emaildefault.email);
   const navigator = useNavigate();
   const dispatch = useDispatch();
 
@@ -31,8 +31,7 @@ const LoginPage = () => {
     let checked = formData.get("check");
     if (email === "swapneel@gmail.com" && password === "12345") {
       if (checked === "on") {
-        let jwt =
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InN3YXBuZWVsQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiMTIzNDUifQ.6zACJsP2I0JUyk_Vq9alW6A3ggv1LhpGLC-35EoSEM8";
+        let jwt = process.env.REACT_APP_SECRET_NAME;
         localStorage.setItem("cAuthToken", jwt);
       }
       dispatch(setLoggedin(true));
@@ -57,7 +56,7 @@ const LoginPage = () => {
       <section className=" p-4  border-b-4 relative border-[#232323]">
         <div className="bg-[url('/src/assets/Images/bg-large-netflix.jpg')] absolute inset-0 filter bg-bottom brightness-[0.4] "></div>
         <div className="relative z-30 flex justify-between mx-2">
-          <NetflixIcon className={"w-[240px]"} onClick={()=>navigator("/")}/>
+          <NetflixIcon className={"w-[240px]"} onClick={() => navigator("/")} />
         </div>
 
         <form
