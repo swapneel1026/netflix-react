@@ -79,7 +79,7 @@ function App() {
             </form>
           </div>
         </section>
-        <section className="flex lg:flex-row flex-col items-center  lg:gap-2  gap-y-2   md:px-16  justify-center h-screen bg-black lg:px-[175px] px-4 border-b-4 border-t-4 border-[#232323]">
+        <section className="flex  lg:flex-row flex-col items-center  lg:gap-2  gap-y-2   md:px-16  justify-center h-screen bg-black lg:px-[175px] px-4 border-b-4 border-t-4 border-[#232323]">
           <div className="w-full text-center text-white lg:text-left">
             <h1 className="text-[32px] lg:text-[48px] font-bold lg:font-extrabold">
               Enjoy on your TV
@@ -90,13 +90,13 @@ function App() {
             </p>
           </div>
           <div className="relative w-full ">
-            <img src={netflixGif} alt="" className="absolute inset-0 w-full" />
+            {/* <img src={netflixGif} alt="" className="absolute inset-0 w-full" /> */}
             <img
               src={Tv}
               alt="some"
               height={434}
               width={579}
-              className="relative"
+              className=" bg-[url('/src/assets/Images/netflixstartscreen.gif')] bg-cover bg-center "
             />
           </div>
         </section>
@@ -141,7 +141,8 @@ function App() {
               alt="some"
               height={434}
               width={579}
-              className="relative"
+              className="relative "
+
             />
           </div>
         </section>
