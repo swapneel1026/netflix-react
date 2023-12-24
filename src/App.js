@@ -5,7 +5,6 @@ import Stranger from "./assets/Images/stranger-things-img.jpg";
 import SacredGames from "./assets/Images/AAAABVr8nYuAg0xDpXDv0VI9HUoH7r2aGp4TKRCsKNQrMwxzTtr-NlwOHeS8bCI2oeZddmu3nMYr3j9MjYhHyjBASb1FaOGYZNYvPBCL.png";
 import AppleTv from "./assets/Images/device-pile-in.png";
 import appleTvGif from "./assets/Images/tvgif.gif";
-import netflixGif from "./assets/Images/netflixstartscreen.gif";
 import { Link } from "react-router-dom";
 import DownloadBanner from "./components/LandingPage/DownloadBanner";
 import { useNavigate } from "react-router-dom";
@@ -142,7 +141,6 @@ function App() {
               height={434}
               width={579}
               className="relative "
-
             />
           </div>
         </section>
