@@ -9,15 +9,19 @@ import { setLoggedin } from "../../Store/Slices/LoggedInSlice";
 
 const NavigationBar = () => {
   const [showLogoutMenu, setShowLogoutMenu] = useState(false);
-  const loggedin = useSelector((store) => store.loggedin.loggedin);
+  const loggedin = useSelector((store) => store.loggedin);
   const navigator = useNavigate();
   const dispatch = useDispatch();
+  console.log(loggedin);
 
-  useEffect(() => {
-    if (loggedin === false && localStorage.getItem("cAuthToken") === null) {
-      navigator("/login");
-    }
-  }, [loggedin, navigator]);
+  // useEffect(() => {
+  //   if (
+  //     loggedin.accessToken === null ||
+  //     localStorage.getItem("accessToken") === null
+  //   ) {
+  //     navigator("/login");
+  //   }
+  // }, [loggedin, navigator]);
   return (
     <div
       className="flex items-center justify-between px-8 text-white "
@@ -56,8 +60,8 @@ const NavigationBar = () => {
               <li>
                 <button
                   onClick={() => {
-                    localStorage.removeItem("cAuthToken");
-                    dispatch(setLoggedin(false));
+                    localStorage.removeItem("accessToken");
+                    dispatch(setLoggedin(null));
                     navigator("/login");
                   }}
                 >
