@@ -34,7 +34,7 @@ const NavigationBar = () => {
         <NetflixIcon className={"w-[140px]"} onClick={() => navigator("/")} />
         <nav className="flex gap-3 ">
           <Link>Home</Link>
-          <Link>Tv Show</Link>
+          <Link>Tv-Show</Link>
           <Link>Movies</Link>
           <Link>New and Popular</Link>
         </nav>
