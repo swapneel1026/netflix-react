@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import NetflixIcon from "../../assets/IconsSvg/NetflixLogo";
 import { useNavigate } from "react-router-dom";
 // import { jwtDecode } from "jwt-decode";
@@ -15,7 +15,7 @@ import { auth } from "../../firebase";
 import { setLoggedin } from "../../Store/Slices/LoggedInSlice";
 
 const LoginPage = () => {
-  const [parsedToken, setParsedToken] = useState("");
+  // const [parsedToken, setParsedToken] = useState("");
   const [typepasswordVisible, setTypePasswordVisible] = useState(false);
   const [passwordText, setPasswordText] = useState("");
   const loggedin = useSelector((store) => store.loggedin);
@@ -34,7 +34,7 @@ const LoginPage = () => {
   const HandleLogin = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    let displayName = formData.get("name");
+    // let displayName = formData.get("name");
     let email = formData.get("email");
     let password = formData.get("password");
     let checked = formData.get("check");
