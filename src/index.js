@@ -9,6 +9,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LoginPage from "./components/Login/LoginPage";
 import Home from "./components/Dashboard/Home";
 import { Toaster } from "sonner";
+import Profile from "./components/Dashboard/Profile";
+import Settings from "./components/Dashboard/Settings";
 
 const router = createBrowserRouter([
   {
@@ -37,14 +39,28 @@ const router = createBrowserRouter([
         <Home />
       </Provider>
     ),
+    children: [
+      {
+        path: "profile",
+        element: (
+          <Provider store={store}>
+            <Profile />
+          </Provider>
+        ),
+      },
+      {
+        path: "settings",
+        element: (
+          <Provider store={store}>
+            <Settings />
+          </Provider>
+        ),
+      },
+    ],
   },
   {
     path: "/demo",
-    element: (
-      <>
-        
-        </>
-    ),
+    element: <></>,
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));

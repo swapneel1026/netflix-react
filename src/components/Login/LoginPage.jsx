@@ -1,49 +1,46 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NetflixIcon from "../../assets/IconsSvg/NetflixLogo";
 import { useNavigate } from "react-router-dom";
-// import { jwtDecode } from "jwt-decode";
 import { IoMdEye } from "react-icons/io";
 import { IoMdEyeOff } from "react-icons/io";
 import { toast } from "sonner";
-import { useSelector, useDispatch } from "react-redux";
-// import { setLoggedin } from "../../Store/Slices/LoggedInSlice";
+import { useSelector } from "react-redux";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../../firebase";
-import { setLoggedin } from "../../Store/Slices/LoggedInSlice";
+import { onAuthStateChanged } from "firebase/auth";
 
 const LoginPage = () => {
-  // const [parsedToken, setParsedToken] = useState("");
   const [typepasswordVisible, setTypePasswordVisible] = useState(false);
   const [passwordText, setPasswordText] = useState("");
   const loggedin = useSelector((store) => store.loggedin);
   const email = useSelector((store) => store.emaildefault.email);
   const [signUp, setSingUp] = useState(false);
   const navigator = useNavigate();
-  const dispatch = useDispatch();
-  console.log(loggedin);
 
   // useEffect(() => {
-  //   if (loggedin || localStorage.getItem("accessToken")) {
-  //     navigator("/home");
-  //   }
-  // }, [loggedin, navigator]);
+  //   onAuthStateChanged(auth, (user) => {
+  //     console.log(auth.currentUser);
+  //     if (user) {
+  //       navigator("/home");
+  //     } else {
+  //       navigator("/login");
+  //     }
+  //   });
+  // }, [navigator]);
 
   const HandleLogin = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    // let displayName = formData.get("name");
     let email = formData.get("email");
     let password = formData.get("password");
     let checked = formData.get("check");
     if (signUp) {
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-          // Signed up
           const user = userCredential.user;
-          console.log(user);
           toast("Signed Up Successfully!");
           if (user) {
             navigator("/login");
@@ -52,16 +49,11 @@ const LoginPage = () => {
         .catch((error) => {
           const errorMessage = error.message;
           toast(errorMessage);
-
-          // ..
         });
     } else {
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-          // Signed in
           const user = userCredential.user;
-
-          dispatch(setLoggedin(user));
           toast("Logged In Successfully!" + user.email);
           if (checked === "on") {
             localStorage.setItem("accessToken", user.accessToken);
@@ -74,33 +66,6 @@ const LoginPage = () => {
         });
     }
   };
-  // const HandleLogin = (e) => {
-  //   e.preventDefault();
-  //   const formData = new FormData(e.target);
-  //   let email = formData.get("email");
-  //   let password = formData.get("password");
-  //   let checked = formData.get("check");
-  //   if (email === "swapneel@gmail.com" && password === "12345") {
-  //     if (checked === "on") {
-  //       let jwt = process.env.REACT_APP_SECRET_NAME;
-  //       localStorage.setItem("cAuthToken", jwt);
-  //     }
-  //     dispatch(setLoggedin(true));
-
-  //     setTimeout(() => {
-  //       navigator("/home");
-  //     }, 3000);
-  //   } else {
-  //     toast("Email or Password Incorrect!");
-  //     dispatch(setLoggedin(false));
-  //   }
-  // };
-  // useEffect(() => {
-  //   const cauthtoken = localStorage.getItem("cAuthToken");
-  //   if (cauthtoken !== null) {
-  //     setParsedToken(jwtDecode(cauthtoken));
-  //   }
-  // }, []);
 
   return (
     <>

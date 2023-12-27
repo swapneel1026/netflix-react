@@ -12,6 +12,7 @@ import { useDispatch } from "react-redux";
 import { setEmail } from "./Store/Slices/EmailDefaultSlice";
 import { faq } from "./components/constants/constants";
 import FaqAccordian from "./components/LandingPage/FaqAccordian";
+
 function App() {
   const [focus, setfocus] = useState(false);
   const [show, setShow] = useState(null);

@@ -2,26 +2,12 @@ import React, { useState } from "react";
 import NetflixIcon from "../../assets/IconsSvg/NetflixLogo";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
-
 import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { setLoggedin } from "../../Store/Slices/LoggedInSlice";
+import { auth } from "../../firebase";
 
 const NavigationBar = () => {
   const [showLogoutMenu, setShowLogoutMenu] = useState(false);
-  const loggedin = useSelector((store) => store.loggedin);
   const navigator = useNavigate();
-  const dispatch = useDispatch();
-  console.log(loggedin);
-
-  // useEffect(() => {
-  //   if (
-  //     loggedin.accessToken === null ||
-  //     localStorage.getItem("accessToken") === null
-  //   ) {
-  //     navigator("/login");
-  //   }
-  // }, [loggedin, navigator]);
   return (
     <div
       className="flex items-center justify-between px-8 text-white "
@@ -48,8 +34,10 @@ const NavigationBar = () => {
             setShowLogoutMenu(!showLogoutMenu);
           }}
         >
-          <p className="relative p-1 text-4xl font-black text-black bg-red-500 h-fit w-fit">
-            N
+          <p className="relative px-4 py-2 text-4xl font-black text-black bg-red-500 h-fit w-fit">
+            {auth.currentUser.displayName !== null
+              ? auth.currentUser.displayName.substring(0, 1).toUpperCase()
+              : "?"}
           </p>
           {
             <ul
@@ -60,16 +48,27 @@ const NavigationBar = () => {
               <li>
                 <button
                   onClick={() => {
-                    localStorage.removeItem("accessToken");
-                    dispatch(setLoggedin(null));
+                    auth.signOut();
                     navigator("/login");
                   }}
                 >
                   LogOut
                 </button>
               </li>
-              <li>Profile</li>
-              <li>Settings</li>
+              <li
+                onClick={() => {
+                  navigator("/home/profile");
+                }}
+              >
+                Profile
+              </li>
+              <li
+                onClick={() => {
+                  navigator("/home/settings");
+                }}
+              >
+                Settings
+              </li>
             </ul>
           }
         </div>
