@@ -8,6 +8,7 @@ import { Outlet } from "react-router-dom";
 const Home = () => {
   const path = useHref();
   const navigator = useNavigate();
+
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {

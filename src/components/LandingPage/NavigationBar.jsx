@@ -8,6 +8,7 @@ import { auth } from "../../firebase";
 const NavigationBar = () => {
   const [showLogoutMenu, setShowLogoutMenu] = useState(false);
   const navigator = useNavigate();
+
   return (
     <div
       className="flex items-center justify-between px-8 text-white "
@@ -22,7 +23,7 @@ const NavigationBar = () => {
           <Link>Home</Link>
           <Link>Tv-Show</Link>
           <Link>Movies</Link>
-          <Link>New and Popular</Link>
+          <Link>{auth.currentUser.email}</Link>
         </nav>
       </section>
       <section className="flex items-center justify-end w-1/2 gap-10">

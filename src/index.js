@@ -11,6 +11,7 @@ import Home from "./components/Dashboard/Home";
 import { Toaster } from "sonner";
 import Profile from "./components/Dashboard/Profile";
 import Settings from "./components/Dashboard/Settings";
+import UpdatePage from "./components/Dashboard/UpdatePage";
 
 const router = createBrowserRouter([
   {
@@ -59,8 +60,8 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/demo",
-    element: <></>,
+    path: "/updatenotification",
+    element: <UpdatePage />,
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));

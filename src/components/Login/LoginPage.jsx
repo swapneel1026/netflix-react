@@ -15,21 +15,19 @@ import { onAuthStateChanged } from "firebase/auth";
 const LoginPage = () => {
   const [typepasswordVisible, setTypePasswordVisible] = useState(false);
   const [passwordText, setPasswordText] = useState("");
-  const loggedin = useSelector((store) => store.loggedin);
   const email = useSelector((store) => store.emaildefault.email);
   const [signUp, setSingUp] = useState(false);
   const navigator = useNavigate();
 
-  // useEffect(() => {
-  //   onAuthStateChanged(auth, (user) => {
-  //     console.log(auth.currentUser);
-  //     if (user) {
-  //       navigator("/home");
-  //     } else {
-  //       navigator("/login");
-  //     }
-  //   });
-  // }, [navigator]);
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        navigator("/home");
+      } else {
+        navigator("/login");
+      }
+    });
+  }, [navigator]);
 
   const HandleLogin = (e) => {
     e.preventDefault();
@@ -43,7 +41,7 @@ const LoginPage = () => {
           const user = userCredential.user;
           toast("Signed Up Successfully!");
           if (user) {
-            navigator("/login");
+            setSingUp(false);
           }
         })
         .catch((error) => {
@@ -146,7 +144,7 @@ const LoginPage = () => {
           {!signUp && (
             <input
               type="submit"
-              value={loggedin ? "Signing In..." : "Sign In"}
+              value={auth.currentUser === null ? "Sign In" : "Signing In..."}
               className="w-full p-4 mt-10 font-medium text-white rounded bg-netflix-red"
             />
           )}
